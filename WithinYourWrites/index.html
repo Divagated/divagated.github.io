@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Within Your Writes</title>
+</head>
+
+<body>
+	<span id="goal">a</span> <br>
+	<input type ="text" id = "input" onkeypress = "checkChange()" onkeyup = "checkChange()"><br>
+	<span id="output">bad</span>
+	<!--<span id="input">test</span>-->
+
+
+<script>
+
+function checkChange() {
+	var input = document.getElementById("input");
+	var goal = document.getElementById("goal");
+	var output = document.getElementById("output");
+	var possible = "abcdefghijklmnopqrstuvwxyz";
+	if (!input.value.replace(/\s/g, '').length){
+		input.value = "";
+	}	
+	if (input.value == goal.innerText){
+		output.innerText = "good"
+		input.value = "";
+		goal.innerText = possible.charAt(Math.floor(Math.random()*possible.length))
+	}
+	else{
+		document.getElementById("output").innerText = "bad"
+	}
+}
+</script>
+
+</body>
+</html>
